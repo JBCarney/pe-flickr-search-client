@@ -7,19 +7,48 @@
 <!--<![endif]-->
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <style>
+    body {
+      background-color: #eee;
+    }
+  </style>
+  <title>Poll Everywhere Flickr Search</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
+  <h1>Flickr Search</h1>
+
+  <div class="form">
+    <button class="search">Go</button>
+  </div>
+
+  <div class="thumbs">
+    <div id="flickr-results"></div>
+  </div>
+
+  <script>
+    $.ready(function () {
+      var key = "4e258a4396bf5ba0448b2e2fe574034e";
+      var flickerAPI = 'https://api.flickr.com/services/rest/';
+
+      $("button").click(function(){
+        $.ajax({url: flickerAPI, success: function(result){
+            $("#flickr-results").html(result);
+        }});
+    });
+    });
+  </script>
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
