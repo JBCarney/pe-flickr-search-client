@@ -1,0 +1,25 @@
+{
+  "name": "pe-flickr-search-client",
+  "version": "1.0.0",
+  "description": "Build a single page application to display search results from Flickr using only jQuery and POJOs (Plain Old Javascript Objects).",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JBCarney/pe-flickr-search-client.git"
+  },
+  "author": "Jason Carney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JBCarney/pe-flickr-search-client/issues"
+  },
+  "homepage": "https://github.com/JBCarney/pe-flickr-search-client#readme",
+  "dependencies": {
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "http-server": "^0.10.0"
+  }
+}
