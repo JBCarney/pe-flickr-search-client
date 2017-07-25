@@ -16,16 +16,17 @@
   <style>
     body {
       background-color: #eee;
+      font: 40em;
+      color: #fff;
     }
 
     div {
-      margin: 0;
+      margin-top: 100px;
     }
 
-    img {
-      max-height: 125px;
-      margin: 0;
-      border: none;
+    span {
+      padding: 60px;
+      background-size: 155px 155px;
     }
   </style>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -35,15 +36,15 @@
 <body>
   <h1>Flickr Search</h1>
 
-  <div class="form">
-    <input class="search" /><br /><br />
-  </div>
+  <input class="search" />
 
   <div class="thumbs">
   </div>
 
   <script>
     $(document).ready(function () {
+      var search = $('.search');
+      var thumbs = $(".thumbs");
       var query = 'tags=';
       var settings = {
         "async": true,
@@ -53,10 +54,12 @@
         "headers": {}
       }
 
-      $('.search').change(function () {
-        settings.url = settings.url.replace(query, 'tags=' + $('.search').val());
-        query = 'tags=' + $('.search').val();
-        $(".thumbs").empty();
+      search.focus();
+
+      search.change(function () {
+        settings.url = settings.url.replace(query, 'tags=' + search.val());
+        query = 'tags=' + search.val();
+        thumbs.empty();
 
         $.ajax(settings).done(function (data) {
           console.log(data);
@@ -68,7 +71,7 @@
             var secret = gp.secret;
 
             console.log(farmId + ", " + serverId + ", " + id + ", " + secret);
-            $(".thumbs").append('<img src="https://farm' + farmId + '.staticflickr.com/' + serverId + '/' + id + '_' + secret + '.jpg"/>');
+            thumbs.append('<span style="background-image: url(https://farm' + farmId + '.staticflickr.com/' + serverId + '/' + id + '_' + secret + '.jpg)">' + serverId + '</span>');
           });
         });
       });
